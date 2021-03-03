@@ -1,3 +1,6 @@
+#   Oyetunde Oyewo
+#  1881782
+
 first: int = int(input())
 second: int = int(input())
 third: int = int(input())
