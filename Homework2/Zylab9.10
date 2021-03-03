@@ -1,0 +1,35 @@
+# Oyetunde Oyewo
+# 1881782
+
+import csv
+
+
+def get_unique_words(all_words) -> object:
+    """
+
+    :rtype: object
+    """
+    unique_words = []
+    for i in all_words:
+        if i not in unique_words:
+            unique_words.append(i)
+    return unique_words
+
+
+file_to_open: str = str(input())
+file = open(file_to_open, 'r')
+reader = csv.reader(file, delimiter=',')
+count: int = 0
+
+word_check = []
+
+
+for line in reader:
+    s_word = line
+
+one_word_of_each = get_unique_words(s_word)
+
+
+for word in one_word_of_each:
+    if word not in word_check:
+        print(word, s_word.count(word))
