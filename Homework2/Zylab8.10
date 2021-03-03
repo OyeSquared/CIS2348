@@ -1,0 +1,7 @@
+word = input()
+word_check = word.replace(' ', '')
+
+if word_check == word_check[::-1]:
+    print(word, "is a palindrome")
+else:
+    print(word, "is not a palindrome")
