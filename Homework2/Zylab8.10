@@ -1,3 +1,6 @@
+# Oyetunde Oyewo
+# 1881782
+
 word = input()
 word_check = word.replace(' ', '')
 
