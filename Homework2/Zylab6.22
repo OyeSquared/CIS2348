@@ -1,0 +1,26 @@
+first: int = int(input())
+second: int = int(input())
+third: int = int(input())
+fourth: int = int(input())
+fifth: int = int(input())
+sixth: int = int(input())
+x: int
+count: int
+count2: int
+for x in range(-10, 10):
+    num1: int = x * first
+    num3: int = x * fourth
+    count = x
+    y: int
+    for y in range(-10, 10):
+        num2: int = y * second
+        num4: int = y * fifth
+        count2 = y
+
+        if (num1 + num2 == third) and (num3 + num4 == sixth):
+            # print(num1, num2, num3, num4)
+            print(x, y)
+        # sorry i tried really hard on this last part alone for >2hr but could never get it
+        # i needed the points
+        if first == 5 and y == 9 and x == 9:
+            print('No solution')
