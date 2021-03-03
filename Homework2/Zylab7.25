@@ -1,0 +1,87 @@
+#Oyetunde Oyewo
+#3/2/2021
+
+num_dollars = 0
+num_quarters = 0
+num_dimes = 0
+num_nickles = 0
+num_pennies = 0
+
+
+def exact_change(user_total):
+    user_total: int
+
+    if user_total > 0:
+
+        dollar_num = user_total // 100
+
+        user_total %= 100
+
+        quarters_num = user_total // 25
+
+        user_total %= 25
+
+        dimes_num = user_total // 10
+
+        user_total %= 10
+
+        nickels_num = user_total // 5
+
+        user_total %= 5
+
+        pennies_num = user_total
+
+        return dollar_num, quarters_num, dimes_num, nickels_num, pennies_num
+
+    else:
+
+        print('no change')
+        return 0, 0, 0, 0, 0
+
+
+if __name__ == '__main__':
+
+    inputval = int(input())
+
+    num_dollars, num_quarters, num_dimes, num_nickels, num_pennies = exact_change(inputval)
+
+    if num_dollars > 1:
+
+        print('{:d} dollars'.format(num_dollars))
+
+    elif num_dollars == 1:
+
+        print(f'{num_dollars:d} dollar')
+
+    if num_quarters > 1:
+
+        print(f'{num_quarters:d} quarters')
+
+    elif num_quarters == 1:
+
+        print('{:d} quarter'.format(num_quarters))
+
+    if num_dimes > 1:
+
+        print(f'{num_dimes:d} dimes')
+
+    elif num_dimes == 1:
+
+        print(f'{num_dimes:d} dime')
+
+    if num_nickels > 1:
+
+        print('{:d} nickels'.format(num_nickels))
+
+    elif num_nickels == 1:
+
+        print(f'{num_nickels:d} nickel')
+
+    if num_pennies > 1:
+
+        print('{:d} pennies'.format(num_pennies))
+
+    elif num_pennies == 1:
+
+        print(f'{num_pennies:d} penny')
+
