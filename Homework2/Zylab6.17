@@ -1,0 +1,17 @@
+word: str = input()
+password = word
+for x in password:
+    if x == 'i':
+        password = password.replace('i', '!')
+    if x == 'a':
+        password = password.replace('a', '@')
+    if x == 'm':
+        password = password.replace('m', 'M')
+    if x == 'B':
+        password = password.replace('B', '8')
+    if x == 'o':
+        password = password.replace('o', '.')
+
+
+password = password + 'q*s'
+print(password)
