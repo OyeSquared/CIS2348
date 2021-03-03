@@ -1,2 +1,2 @@
-# Homework-
-Repository for all HW#1
+# CIS2348
+Repository for all assignments for CIS2348
