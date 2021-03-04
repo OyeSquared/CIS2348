@@ -1,0 +1,68 @@
+# Oyetunde Oyewo
+# 1881782
+import datetime
+import os
+from typing import TextIO
+
+today = datetime.datetime.now()
+months = ['January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December']
+month_num: int = 0
+date_changed: str = ''
+ran_num: int = 1
+
+while ran_num == 1:
+
+    file_to_open: str = str(input())
+    if os.path.exists(file_to_open):  # to avoid cases where someone mistypes
+        file: TextIO = open(file_to_open, 'r')
+    else:
+        continue
+
+    # file = open('inputDates.txt', 'r')   ( can be used to check if code works for b)
+    lines = file.readlines()
+    line: str
+    file.close()
+    for line in lines:
+        user_date: str = line
+        # user_date: str = input()          ( can be used to check if code works for a)
+        if user_date == '-1':
+            ran_num = 0
+            break
+
+        remove_next_line = user_date.replace('\n', '')  # to remove unneeded character
+        date_split = remove_next_line.split(' ')        # to create a list to parse through
+
+        length = len(date_split)
+        if length != 3:
+            continue
+        month = date_split[0]
+        day = date_split[1]
+        year = date_split[2]
+        day_number: int = day.split(",")[0]
+        x: int
+        for x in range(0, 12):
+            if month == months[x]:
+                month_num: int = x + 1
+        date_changed = str(month_num) + '/' + str(day_number) + '/' + str(year)
+
+        date_changed_compare: str = str(day_number) + '/' + str(month_num) + '/' + str(year)  # to compare
+        date_changed_compare = datetime.datetime.strptime(date_changed_compare, "%d/%m/%Y")  # using same format
+
+        if date_changed_compare > today or (month not in months):  # month checks if user_date is in proper format
+            pass  # equality checks if user_date is after current date
+        else:
+            print(date_changed)
+            new_file: TextIO
+            with open('parsedDates.txt', 'a') as new_file:  # to write a new file called parsedDates.txt
+                new_file.write(str(date_changed))
+                new_file.write('\n')
+                new_file.flush()
+                os.fsync(new_file.fileno())
+
+        if SyntaxError:
+            continue
+        if IndexError:
+            continue
+        if ValueError:
+            continue
