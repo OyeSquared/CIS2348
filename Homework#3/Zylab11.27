@@ -1,0 +1,89 @@
+# Oyetunde Oyewo
+# 1881782
+
+
+player_1_jer_num = int(input("Enter player 1's jersey number:\n"))
+player_1_rating = int(input("Enter player 1's rating:\n"))
+
+print()
+
+player_2_jer_num = int(input("Enter player 2's jersey number:\n"))
+player_2_rating = int(input("Enter player 2's rating:\n"))
+
+print()
+
+player_3_jer_num = int(input("Enter player 3's jersey number:\n"))
+player_3_rating = int(input("Enter player 3's rating:\n"))
+
+print()
+
+player_4_jer_num = int(input("Enter player 4's jersey number:\n"))
+player_4_rating = int(input("Enter player 4's rating:\n"))
+
+print()
+
+player_5_jer_num = int(input("Enter player 5's jersey number:\n"))
+player_5_rating = int(input("Enter player 5's rating:\n"))
+
+print()
+
+Roster = {
+    player_1_jer_num: player_1_rating,
+    player_2_jer_num: player_2_rating,
+    player_3_jer_num: player_3_rating,
+    player_4_jer_num: player_4_rating,
+    player_5_jer_num: player_5_rating
+}
+
+print("ROSTER")
+for key, value in sorted(Roster.items()):
+    print('Jersey number: {}, Rating: {}'.format(key, value))
+
+print()
+
+print('MENU')
+print('a - Add player')
+print('d - Remove player')
+print('u - Update player rating')
+print('r - Output players above a rating')
+print('o - Output roster')
+print('q - Quit')
+print()
+print('Choose an option:')
+menu_char = input()
+#menu_char = 'random'  # made the char that'll initiate loop into a random char to get loop running
+while menu_char != 'q':
+
+    if menu_char == 'o':
+        print("ROSTER")
+        for key, value in sorted(Roster.items()):
+            print('Jersey number: {}, Rating: {}'.format(key, value))
+    if menu_char == 'a':
+        new_player_jer_num = int(input("Enter a new player's jersey number:\n"))
+        new_player_rating = int(input("Enter the player's rating: \n"))
+        Roster.update({new_player_jer_num: new_player_rating})
+    if menu_char == 'd':
+        unwanted_player_jer_num = int(input("Enter a jersey number:\n"))
+        Roster.pop(unwanted_player_jer_num)
+    if menu_char == 'u':
+        player_jer_num = int(input("Enter a jersey number:"))
+        player_new_rating = int(input("Enter a new rating for player:"))
+        if player_jer_num in Roster:
+            Roster.update({player_jer_num: player_new_rating})
+    if menu_char == 'r':
+        standard_rating = int(input("Enter a rating:"))
+        for jersey, rating in Roster.items():
+            if rating > standard_rating:
+                print("ABOVE", rating)
+                print('Jersey number: {}, Rating: {}'.format(jersey, rating))
+    print()
+    print('MENU')
+    print('a - Add player')
+    print('d - Remove player')
+    print('u - Update player rating')
+    print('r - Output players above a rating')
+    print('o - Output roster')
+    print('q - Quit')
+    print()
+    print('Choose an option:')
+    menu_char = input()
