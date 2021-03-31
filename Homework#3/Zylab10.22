@@ -1,0 +1,5 @@
+#  Oyetnde Oyewo
+#  1881782user_input = input()
+user_input_list = user_input.split()
+for word in user_input_list:
+    print(word, user_input_list.count(word))
