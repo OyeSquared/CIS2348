@@ -72,9 +72,9 @@ while menu_char != 'q':
             Roster.update({player_jer_num: player_new_rating})
     if menu_char == 'r':
         standard_rating = int(input("Enter a rating:"))
+        print("ABOVE", rating)
         for jersey, rating in Roster.items():
             if rating > standard_rating:
-                print("ABOVE", rating)
                 print('Jersey number: {}, Rating: {}'.format(jersey, rating))
     print()
     print('MENU')
