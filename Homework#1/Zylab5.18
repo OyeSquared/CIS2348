@@ -1,0 +1,51 @@
+#   Oyetunde Oyewo
+#   1881782
+
+
+services = {
+    'Oil change': 35,
+    "Tire rotation": 19,
+    "Car wash": 7,
+    "Car wax": 12,
+    "No service": ''
+}
+
+print("Davy's auto shop services")
+print("Oil change -- ${}".format(services["Oil change"]))
+print("Tire rotation -- ${}".format(services["Tire rotation"]))
+print("Car wash -- ${}".format(services["Car wash"]))
+print("Car wax -- ${}".format(services["Car wax"]))
+print()
+
+first_service = str(input("Select first service:\n"))
+second_service: str = str(input("Select second service:\n"))
+if first_service == "-":
+    first_service = "No service"
+    print()
+    print("Davy's auto shop invoice")
+    print()
+    print("Service 1: {}".format(first_service))
+    print("Service 2: {}, ${}".format(second_service, services[second_service]))
+    print()
+    print("Total: ${}".format(services[second_service]))
+
+elif second_service == "-":
+    second_service = "No service"
+    print()
+    print("Davy's auto shop invoice")
+    print()
+    print("Service 1: {}, ${}".format(first_service, services[first_service]))
+    print("Service 2: {}".format(second_service))
+    print()
+    print("Total: ${}".format(services[first_service]))
+
+else:
+    print()
+    print("Davy's auto shop invoice")
+    print()
+    print("Service 1: {}, ${}".format(first_service, services[first_service]))
+    print("Service 2: {}, ${}".format(second_service, services[second_service]))
+    print()
+    print("Total: ${}".format(services[first_service] + services[second_service]))
+
+
