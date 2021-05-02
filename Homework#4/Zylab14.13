@@ -1,0 +1,77 @@
+# Oyetunde Oyewo
+# 1881782
+
+# Global variable
+number_calls = 0
+
+
+# TODO: Write the partitioning algorithm - pick the middle element as the
+#       pivot, compare the values using two index variables l and h (low and high),
+#       initialized to the left and right sides of the current elements being sorted,
+#       and determine if a swap is necessary
+def partition(ids, i, k):
+    #  Pick middle element as pivot
+    midpoint = i + (k - i) // 2
+    pivot = ids[midpoint]
+
+    #  Initialize variables
+    done = False
+    low = i
+    high = k
+    while not done:
+        #  Increment low while ids[low] < pivot
+        while ids[low] < pivot:
+            low = low + 1
+        #  Decrement high while pivot < ids[high]
+        while pivot < ids[high]:
+            high = high - 1
+        """  If there are zero or one items remaining,
+              all ids are partitioned. Return high """
+        if low >= high:
+            done = True
+        else:
+            """  Swap ids[low] and ids[high],
+                  update low and high """
+            temp = ids[low]
+            ids[low] = ids[high]
+            ids[high] = temp
+            low = low + 1
+            high = high - 1
+    return high
+
+
+# TODO: Write the quicksort algorithm that recursively sorts the low and
+#       high partitions. Add 1 to num_calls each time quicksort() is called
+def quicksort(ids, i, k):
+    global number_calls  # to call the number_calls variable and use in function
+    number_calls += 1
+    """  Base case: If there are 1 or zero entries to sort,
+          partition is already sorted  """
+    if i >= k:
+        return ids, number_calls
+    """  Partition the data within the array. Value j returned
+          from partitioning is location of last item in low partition. """
+    j = partition(ids, i, k)
+    """  Recursively sort low partition (i to j) and
+          high partition (j + 1 to k) """
+    quicksort(ids, i, j)
+    quicksort(ids, j + 1, k)
+    return ids, number_calls
+
+
+if __name__ == "__main__":
+    user_ids = []
+    user_id = input()
+    while user_id != "-1":
+        user_ids.append(user_id)
+        user_id = input()
+
+    # Initial call to quicksort
+    user_ids, number_calls = quicksort(user_ids, 0, len(user_ids) - 1)
+
+    # Print number of calls to quicksort
+    print(number_calls)
+
+    # Print sorted user ids
+    for user_id in user_ids:
+        print(user_id)
