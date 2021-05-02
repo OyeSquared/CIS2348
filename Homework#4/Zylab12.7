@@ -1,0 +1,26 @@
+# Oyetunde Oyewo
+# 1881782
+
+
+def get_age():
+    person_age = int(input())
+    if person_age < 18 or person_age > 75:
+        raise ValueError("Invalid age.")
+    return person_age
+
+
+# TODO: Complete fat_burning_heart_rate() function
+def fat_burning_heart_rate(person_age):
+    heart_rate = 0.70 * (220 - person_age)
+    return heart_rate
+
+
+if __name__ == "__main__":
+    # TODO: Modify to call get_age() and fat_burning_heart_rate()
+    #       and handle the exception
+    try:
+        age = get_age()
+        print("Fat burning heart rate for a {} year-old: {} bpm".format(age, fat_burning_heart_rate(age)))
+    except ValueError as invalid:
+        print(invalid)
+        print("Could not calculate heart rate info.\n")
